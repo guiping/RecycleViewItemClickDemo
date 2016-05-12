@@ -43,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
 
         mRecycleItemCallbackAdapter = new RecycleItemCallbackAdapter(this, mList);
         mRecycleItelTouchAdapter = new RecycleItemTouchAdapter(this, mList);
-        if (isRecycleViewTouchClick) {
+        if (isRecycleViewTouchClick) {    //采用addItemTouch方式 实现点击长按 比较强大
             OnRecycleItemClickListener mRecycleItemClickListener = new OnRecycleItemClickListener(recycleviewView);
             mRecycleItemClickListener.setOnRvItemClickListener(new OnRecycleItemClickListener.OnRvItemClickListener() { //设置点击事件
                 @Override
@@ -65,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
             });
             recycleviewView.addOnItemTouchListener(mRecycleItemClickListener);
             recycleviewView.setAdapter(mRecycleItelTouchAdapter);
-        } else {
+        } else {   //通过给ItemView 设置点击长按事件通过接口回掉 实现点击长按 局限性比较大 但是简单
             recycleviewView.setAdapter(mRecycleItemCallbackAdapter);
             mRecycleItemCallbackAdapter.setOnRecycleItemClickListener(new RecycleItemCallbackAdapter.OnRvItemClickListener() {
                 @Override
