@@ -3,6 +3,7 @@ package lvy.so.app.recycleviewitemclickdemo.adapter;
 import android.content.Context;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -38,7 +39,8 @@ public class RecycleItemTouchAdapter extends RecyclerView.Adapter<RecycleItemTou
 
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
-        holder.itemRecycleTv.setText(holder.getLayoutPosition() + ". " + mList.get(position));
+        Log.e("RecycleItemTouchAdapter", position + "---" + holder.getAdapterPosition() + "---" + holder.getLayoutPosition() + "---" + holder.getOldPosition());
+        holder.itemRecycleTv.setText(mList.get(position));
     }
 
     @Override
